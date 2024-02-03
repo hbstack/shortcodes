@@ -1,0 +1,18 @@
+{{- $text := "" }}
+{{- $markdown := false }}
+{{- $selectable := false }}
+{{- if .IsNamedParams }}
+  {{- with (.Get "text") }}{{ $text = . }}{{ end }}
+  {{- with (.Get "markdown") }}{{ $markdown = . }}{{ end }}
+  {{- with (.Get "selectable") }}{{ $selectable = . }}{{ end }}
+{{- else }}
+  {{- with (.Get 0) }}{{ $text = . }}{{ end }}
+  {{- with (.Get 1) }}{{ $markdown = . }}{{ end }}
+{{- end }}
+<span class="hb-spoiler-tag{{ cond $selectable `` ` user-select-none` }}">
+  {{- with $text }} 
+    {{- . -}}
+  {{- else }}
+    {{- cond $markdown (.Page.RenderString .Inner) .Inner -}}
+  {{- end }}
+</span>

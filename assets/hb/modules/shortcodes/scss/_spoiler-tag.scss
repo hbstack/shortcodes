@@ -1,0 +1,10 @@
+.hb-spoiler-tag {
+  background: var(--#{$prefix}secondary);
+  color: var(--#{$prefix}secondary);
+  transition: .5s;
+
+  &:hover {
+    background: inherit;
+    color: inherit;
+  }
+}
