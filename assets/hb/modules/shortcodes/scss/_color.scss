@@ -1,0 +1,12 @@
+.hb-color {
+  &::after {
+    content: '';
+    background: var(--color);
+    border: 1px solid var(--#{$prefix}dark);
+    display: inline-block;
+    height: 0.8rem;
+    margin-left: .125rem;
+    width: 0.8rem;
+    vertical-align: -0.125rem;
+  }
+}
